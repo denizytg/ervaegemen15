@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SÜRPRİZ</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0f0f0f;
+    color:white;
+    overflow-x:hidden;
+}
+
+section{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+p{
+    max-width:700px;
+    font-size:1.2rem;
+    line-height:1.8;
+}
+
+.btn{
+    margin-top:30px;
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    font-size:1rem;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+}
+
+.hero{
+    background:linear-gradient(135deg,#111,#1f1f1f);
+}
+
+.story{
+    background:#171717;
+}
+
+.story:nth-child(even){
+    background:#202020;
+}
+
+.countdown{
+    background:black;
+}
+
+#count{
+    font-size:7rem;
+    color:#ff4d6d;
+}
+
+.final{
+    background:linear-gradient(180deg,#0f0f0f,#240014);
+}
+
+.heart{
+    font-size:5rem;
+    animation:beat 1s infinite;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+.choice{
+    display:flex;
+    gap:20px;
+    margin-top:30px;
+}
+
+.choice button{
+    padding:15px 25px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:#ff4d6d;
+    color:white;
+    font-size:1rem;
+}
+
+#message{
+    margin-top:25px;
+    font-size:1.5rem;
+    color:#ffd6df;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>Merhaba ❤️</h1>
+    <p>
+        Sana göstermek istediğim birkaç şey var...
+    </p>
+    <button class="btn" onclick="document.getElementById('music').play()">
+    Şarkıyı  Başlat
+</button>
+    <button class="btn" onclick="startJourney()">
+        Devam❤️
+    </button>
+    <audio id="music" loop>
+    <source src="PinkmMatter.mp3" type="audio/mpeg">
+    </audio>
+</section>
+
+<section class="story">
+    <h1>📍 Seni İlk Gördüğüm Gün</h1>
+    <p>
+        Belki sıradan bir gündü benim için sonradan
+        çok özel hale geldi. Çünkü o gün seni ilk kez gördüm ve dona kaldım.
+    </p>
+</section>
+
+<section class="story">
+    <h1>✨ Sonra...</h1>
+    <p>
+        Seninle konuşmak günümün en güzel kısmı olmaya başladı.
+        Attığın bir mesaj bile yüzümü güldürüyordu.
+    </p>
+</section>
+
+<section class="story">
+    <h1>🌙 Fark Ettim Ki</h1>
+    <p>
+        Güzel ve kötü haberlerimin hepsini bil istiyorum.
+        Kötü veya iyi her gün aklıma ilk sen geliyorsun
+        ve zaman geçtikçe seni daha çok merak ediyorum.
+    </p>
+</section>
+
+<section class="countdown">
+    <div id="count">3</div>
+</section>
+
+<section class="final">
+    <div class="heart">❤️</div>
+
+    <h1 style="margin-top:20px">
+        Sana Bir Şey Sormak İstiyorum
+    </h1>
+
+    <p>
+        Bundan önceki anılarımda olmasanda
+        Bundan sonra oluşacak anılarımda olmanı istiyorum.
+    </p>
+
+    <h1 style="margin-top:35px">
+        Benimle Çıkar Mısın?
+    </h1>
+
+    <div class="choice">
+        <button onclick="yes()">❤️ Evet</button>
+        <button onclick="yes()">❤️ Kesinlikle Evet</button>
+    </div>
+
+    <div id="message"></div>
+</section>
+
+<script>
+
+function startJourney(){
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior:"smooth"
+    });
+}
+
+let count = 3;
+
+const interval = setInterval(() => {
+
+    const el = document.getElementById("count");
+
+    if(!el) return;
+
+    count--;
+
+    if(count > 0){
+        el.innerText = count;
+    }else{
+        el.innerText = "❤️";
+        clearInterval(interval);
+    }
+
+},1000);
+
+function yes(){
+    document.getElementById("message").innerHTML =
+    "❤️ Evete yada kessinlikle evete bastı isen gerisini yüz yüze halletmem gerekiyor sanırım...";
+}
+
+</script>
+
+</body>
+</html>
