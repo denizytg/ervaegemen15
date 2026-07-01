@@ -126,9 +126,6 @@ p{
     <button class="btn" onclick="document.getElementById('music').play()">
     Şarkıyı  Başlat
 </button>
-    <button class="btn" onclick="startJourney()">
-        Devam❤️
-    </button>
     <audio id="music" loop>
     <source src="PinkmMatter.mp3" type="audio/mpeg">
     </audio>
@@ -157,70 +154,10 @@ p{
         Kötü veya iyi her gün aklıma ilk sen geliyorsun
         ve zaman geçtikçe seni daha çok merak ediyorum.
     </p>
-</section>
-
-<section class="countdown">
-    <div id="count">3</div>
-</section>
-
-<section class="final">
-    <div class="heart">❤️</div>
-
-    <h1 style="margin-top:20px">
-        Sana Bir Şey Sormak İstiyorum
-    </h1>
-
     <p>
         Bundan önceki anılarımda olmasanda
         Bundan sonra oluşacak anılarımda olmanı istiyorum.
     </p>
-
-    <h1 style="margin-top:35px">
-        Benimle Çıkar Mısın?
-    </h1>
-
-    <div class="choice">
-        <button onclick="yes()">❤️ Evet</button>
-        <button onclick="yes()">❤️ Kesinlikle Evet</button>
-    </div>
-
-    <div id="message"></div>
 </section>
-
-<script>
-
-function startJourney(){
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior:"smooth"
-    });
-}
-
-let count = 3;
-
-const interval = setInterval(() => {
-
-    const el = document.getElementById("count");
-
-    if(!el) return;
-
-    count--;
-
-    if(count > 0){
-        el.innerText = count;
-    }else{
-        el.innerText = "❤️";
-        clearInterval(interval);
-    }
-
-},1000);
-
-function yes(){
-    document.getElementById("message").innerHTML =
-    "❤️ Evete yada kessinlikle evete bastı isen gerisini yüz yüze halletmem gerekiyor sanırım...";
-}
-
-</script>
-
 </body>
 </html>
